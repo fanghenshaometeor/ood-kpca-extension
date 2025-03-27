@@ -19,7 +19,7 @@ If our work benefits your researches, welcome to cite our paper!
 ## KPCA for OoD detection in a nutshell
 
 We highlight the main differences of this extension study from its conference version [1]:
-- A data-dependent low-rank Nystr\"om method is introduced to approximate KPCA, where the sampling strategy in Nystr\"om is intentionally devised based on InD data properties.  
+- A data-dependent low-rank Nyström method is introduced to approximate KPCA, where the sampling strategy in Nyström is intentionally devised based on InD data properties.  
 Such a data-dependent approximation leads to more discriminative InD and OoD representations and outperforms the data-independent random features in [1] with enhanced OoD detection performance and cheaper computational complexity.
 - A numerical analysis on the approximation performance of random features and low-rank approximation in terms of KPCA reconstruction errors on InD and OoD data within this deep learning regime is supplemented for a comprehensive investigation.
 
@@ -48,6 +48,12 @@ step.2.
 - Run the `run_detection.sh` to obtain the detection results where only the KPCA-based reconstruction error serves as the detection score. 
 - Run the `run_detection_fusion.sh` to obtain the detection results where the KPCA-based reconstruction error is fused with other detection scores (MSP, Energy, ReAct, BATS).
 
+## 
+
+If u have problems about the code or paper, u could contact me (fanghenshao@sjtu.edu.cn) or raise issues here.
+
+If the code benefits ur researches, welcome to fork and star ⭐ this repo! :)
+
 ---
-[1] K. Fang, Q. Tao, K. Lv, M. He, X. Huang, and J. YANG. Kernel pca
-for out-of-distribution detection. NeurIPS 2024.
+[1] K. Fang, Q. Tao, K. Lv, M. He, X. Huang, and J. Yang. Kernel PCA
+for Out-of-Distribution Detection. NeurIPS 2024.

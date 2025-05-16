@@ -1,5 +1,6 @@
-# Kernel PCA for Out-of-Distribution Detection:  Non-Linear Kernel Selections and Approximations
-This is the official PyTorch implementation of the **extension study** of the NeurIPS'24 paper [*Kernel PCA for Out-of-Distribution Detection*](https://papers.nips.cc/paper_files/paper/2024/file/f2543511e5f4d4764857f9ad833a977d-Paper-Conference.pdf).
+# Kernel PCA for Out-of-Distribution Detection: Non-Linear Kernel Selections and Approximations
+This is the official PyTorch implementation of the **extension study** of the NeurIPS'24 paper [*Kernel PCA for Out-of-Distribution Detection*](https://papers.nips.cc/paper_files/paper/2024/file/f2543511e5f4d4764857f9ad833a977d-Paper-Conference.pdf).  
+*This repo. is being updated...*
 
 <!-- If our work benefits your researches, welcome to cite our paper!
 ```

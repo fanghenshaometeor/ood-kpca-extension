@@ -49,14 +49,14 @@ ood-kpca-extension
 |   └── ImageNet
 |       └── R50
 |           └── supcon
-|               └── supcon.pth
+|               └── supcon-linear.pth
 ├── ...
 ```
 
-*The supervised contrast learning R50 checkpoint released in the [KNN repo](https://github.com/deeplearning-wisc/knn-ood) only contains backbone weights and misses the linear layer. We additionally train the linear layer on top of the backbone weights following the suggestions in the [supcontrast repo](https://github.com/HobbitLong/SupContrast).*
+*The supervised contrast learning R50 checkpoint released in the [KNN repo](https://github.com/deeplearning-wisc/knn-ood) only contains backbone weights and misses the linear layer. We additionally train the linear layer on top of the backbone weights following the suggestions in the [supcontrast repo](https://github.com/HobbitLong/SupContrast). Our trained model is released [here](https://drive.google.com/drive/folders/1-ISbfuEqMZnLpnSud6v2GSl2SNjSiXTJ?usp=sharing).*
 
 ## Running
-step.1. Run the `feat_extract.sh` to extract the penultimate features.
+step.1. Run the `feat_extract_largescale.sh` to extract the penultimate layer features.
 
 step.2. 
 - Run the `run_detection.sh` to obtain the detection results where only the KPCA-based reconstruction error serves as the detection score. 

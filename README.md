@@ -1,21 +1,36 @@
 # Kernel PCA for Out-of-Distribution Detection: Non-Linear Kernel Selections and Approximations
-This is the official PyTorch implementation of the **extension study** of the NeurIPS'24 paper [*Kernel PCA for Out-of-Distribution Detection*](https://papers.nips.cc/paper_files/paper/2024/file/f2543511e5f4d4764857f9ad833a977d-Paper-Conference.pdf).  
+This is the official PyTorch implementation of the paper *Kernel PCA for Out-of-Distribution Detection: Non-Linear Kernel Selections and Approximations* ([arxiv](https://arxiv.org/abs/2505.15284)).
+
+This is an **extension study** of our previous work accepted by NeurIPS'24: *Kernel PCA for Out-of-Distribution Detection* ([conference](https://proceedings.neurips.cc/paper_files/paper/2024/hash/f2543511e5f4d4764857f9ad833a977d-Abstract-Conference.html), [arxiv](https://arxiv.org/abs/2402.02949), [code](https://github.com/fanghenshaometeor/ood-kernel-pca)).
+
 *This repo. is being updated...*
 
-<!-- If our work benefits your researches, welcome to cite our paper!
+If our work benefits your researches, welcome to cite our paper!
 ```
-@inproceedings{NEURIPS2024_f2543511,
- author = {Fang, Kun and Tao, Qinghua and Lv, Kexin and He, Mingzhen and Huang, Xiaolin and YANG, JIE},
- booktitle = {Advances in Neural Information Processing Systems},
- editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
- pages = {134317--134344},
- publisher = {Curran Associates, Inc.},
- title = {Kernel PCA for Out-of-Distribution Detection},
- url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/f2543511e5f4d4764857f9ad833a977d-Paper-Conference.pdf},
- volume = {37},
- year = {2024}
+@inproceedings{fang2024kpcaood,
+author = {Fang, Kun and Tao, Qinghua and Lv, Kexin and He, Mingzhen and Huang, Xiaolin and YANG, JIE},
+booktitle = {Advances in Neural Information Processing Systems},
+editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+pages = {134317--134344},
+publisher = {Curran Associates, Inc.},
+title = {Kernel PCA for Out-of-Distribution Detection},
+url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/f2543511e5f4d4764857f9ad833a977d-Paper-Conference.pdf},
+volume = {37},
+year = {2024}
 }
-``` -->
+```
+
+```
+@misc{fang2025kpcaood,
+title = {Kernel PCA for Out-of-Distribution Detection: Non-Linear Kernel Selections and Approximations}, 
+author = {Kun Fang and Qinghua Tao and Mingzhen He and Kexin Lv and Runze Yang and Haibo Hu and Xiaolin Huang and Jie Yang and Longbin Cao},
+year = {2025},
+eprint = {2505.15284},
+archivePrefix = {arXiv},
+primaryClass = {cs.LG},
+url = {https://arxiv.org/abs/2505.15284}, 
+}
+```
 
 ## KPCA for OoD detection in a nutshell
 
@@ -41,7 +56,7 @@ Such a modified data-dependent approximation leads to more discriminative InD an
 Prepare in-distribution and out-distribution data sets following the instructions in the [KNN repo](https://github.com/deeplearning-wisc/knn-ood).
 Then, modify the data paths in `utils_ood.py` as yours.
 
-For ResNet50 on ImageNet under supervised contrastive learning, download our model checkpoint and put it as
+For ResNet50 on ImageNet under supervised contrastive learning, download our trained checkpoint and put it as
 ```
 ood-kpca-extension
 ├── model
@@ -53,18 +68,18 @@ ood-kpca-extension
 ├── ...
 ```
 
-*The supervised contrast learning R50 checkpoint released in the [KNN repo](https://github.com/deeplearning-wisc/knn-ood) only contains backbone weights and misses the linear layer. We additionally train the linear layer on top of the backbone weights following the suggestions in the [supcontrast repo](https://github.com/HobbitLong/SupContrast). Our trained model is released [here](https://drive.google.com/drive/folders/1-ISbfuEqMZnLpnSud6v2GSl2SNjSiXTJ?usp=sharing).*
+*The supervised contrast learning R50 checkpoint released in the [KNN repo](https://github.com/deeplearning-wisc/knn-ood) only contains backbone weights and misses the linear layer. We further fine-tune the linear layer on top of the backbone weights following the suggestions in the [supcontrast repo](https://github.com/HobbitLong/SupContrast). Our trained checkpoint is released [here](https://drive.google.com/drive/folders/1-ISbfuEqMZnLpnSud6v2GSl2SNjSiXTJ?usp=sharing).*
 
 ## Running
 step.1. Run the `feat_extract_largescale.sh` to extract the penultimate layer features.
 
 step.2. 
-- Run the `run_detection.sh` to obtain the detection results where only the KPCA-based reconstruction error serves as the detection score. 
-- Run the `run_detection_fusion.sh` to obtain the detection results where the KPCA-based reconstruction error is fused with other detection scores (MSP, Energy, ReAct, BATS).
+<!-- - Run the `run_detection.sh` to obtain the detection results where only the KPCA-based reconstruction error serves as the detection score. 
+- Run the `run_detection_fusion.sh` to obtain the detection results where the KPCA-based reconstruction error is fused with other detection scores (MSP, Energy, ReAct, BATS). -->
 
 ## 
 
-If u have problems about the code or paper, u could contact me (fanghenshao@sjtu.edu.cn) or raise issues here.
+If u have problems about the code or paper, u could contact me (kun.fang@polyu.edu.hk) or raise issues here.
 
 If the code benefits ur researches, welcome to fork and star ⭐ this repo! :)
 

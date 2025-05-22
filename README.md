@@ -45,7 +45,7 @@ For the latter, we introduce two techniques to approximate the Cosine-Gaussian k
 In particular, our approximation is further tailored by incorporating the InD data confidence, which is demonstrated to promote the learning of discriminative subspaces for OoD data.
 Our study presents new insights into the non-linear feature subspace for OoD detection and contributes practical explorations on the associated kernel design and efficient computations, yielding a KPCA detection method with distinctively improved efficacy and efficiency.
 
-### Main differences of this extension study from its conference version [1]:
+### Main differences of this extension study from its [conference version]((https://proceedings.neurips.cc/paper_files/paper/2024/hash/f2543511e5f4d4764857f9ad833a977d-Abstract-Conference.html)) [1]:
 - We supplement more analyses and experiments to support the non-linear kernel selection for OoD detection in Section III.
 - A data-dependent Nystr\"om method is employed to build an explicit approximated mapping in Section IV-B, where the sampling strategy in Nystr\"om is intentionally devised based on InD data confidence.
 Such a modified data-dependent approximation leads to more discriminative InD and OoD representations and outperforms the data-independent way in [1] with enhanced OoD detection performance and a cheaper computational complexity.

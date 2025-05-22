@@ -77,6 +77,7 @@ FORCE_RUN = False
 featdim = {
     'R50': 2048,
     'MNet': 1280,
+    'ViT': 768,
 }[args.arch]
 
 

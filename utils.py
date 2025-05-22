@@ -7,11 +7,10 @@ import os
 import sys
 
 sys.path.append("model")
-import resnet
-import resnet_supcon
 import imgnet_resnet
 import imgnet_resnet_supcon
 import imgnet_mobilenet
+import imgnet_vit
 
 from torch.utils.data import DataLoader
 from torchvision.datasets import CIFAR10, ImageFolder
@@ -103,12 +102,7 @@ def get_model(args):
     else:
         assert False, "Unknown dataset : {}".format(args.dataset)
     
-    if args.arch == 'R18' and args.dataset == 'CIFAR10':
-        if args.supcon:
-            net = resnet_supcon.__dict__['resnet18_cifar']()
-        else:
-            net = resnet.__dict__['resnet18_cifar']()
-    elif args.arch == 'R50' and args.dataset == 'ImageNet':
+    if args.arch == 'R50' and args.dataset == 'ImageNet':
         if args.supcon:
             net = imgnet_resnet_supcon.SupConResNet(num_classes=args.num_classes)
             cudnn.benchmark = True
@@ -117,6 +111,9 @@ def get_model(args):
             cudnn.benchmark = True
     elif args.arch == 'MNet' and args.dataset == 'ImageNet':
         net = imgnet_mobilenet.__dict__['mobilenet_v2'](pretrained=True)
+        cudnn.benchmark = True
+    elif args.arch == 'ViT' and args.dataset == 'ImageNet':
+        net = imgnet_vit.__dict__['vit_b_16'](pretrained=True)
         cudnn.benchmark = True
     else:
         assert False, "Unknown model : {}".format(args.arch)

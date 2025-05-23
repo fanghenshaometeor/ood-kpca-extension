@@ -63,6 +63,7 @@ print("Loading features from {}...".format(args.cache_path))
 featdim = {
     'R50': 2048,
     'MNet': 1280,
+    'ViT': 768,
 }[args.arch]
 id_train_size = 1281167
 id_val_size = 50000

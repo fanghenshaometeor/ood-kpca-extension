@@ -47,7 +47,7 @@ Our study presents new insights into the non-linear feature subspace for OoD det
 
 ### Main differences of this extension study from its [conference version]((https://proceedings.neurips.cc/paper_files/paper/2024/hash/f2543511e5f4d4764857f9ad833a977d-Abstract-Conference.html)) [1]:
 - We supplement more analyses and experiments to support the non-linear kernel selection for OoD detection in Section III.
-- A data-dependent Nystr\"om method is employed to build an explicit approximated mapping in Section IV-B, where the sampling strategy in Nystr\"om is intentionally devised based on InD data confidence.
+- A data-dependent Nystr&ouml;m method is employed to build an explicit approximated mapping in Section IV-B, where the sampling strategy in Nystr&ouml;m is intentionally devised based on InD data confidence.
 Such a modified data-dependent approximation leads to more discriminative InD and OoD representations and outperforms the data-independent way in [1] with enhanced OoD detection performance and a cheaper computational complexity.
 - We supplement a numerical analysis in Section IV-D on the approximation performance of our method in terms of KPCA reconstruction errors on InD and OoD data within this deep learning regime for a comprehensive investigation.
 - More experiments are provided in Section V, including comparisons with a broader variety of strong baselines and in-depth analyses on our KPCA detection method to validate its effectiveness.
@@ -72,8 +72,16 @@ ood-kpca-extension
 
 ## Running
 step.1. Run the `feat_extract_largescale.sh` to extract the penultimate layer features.
+```
+bash feat_extract_largescale.sh
+```
 
-step.2. 
+step.2. Run the `energy_training.sh` to compute the Energy values of the training samples for Nystr&ouml;m sampling.
+```
+bash energy_training.sh
+```
+
+step.3. 
 <!-- - Run the `run_detection.sh` to obtain the detection results where only the KPCA-based reconstruction error serves as the detection score. 
 - Run the `run_detection_fusion.sh` to obtain the detection results where the KPCA-based reconstruction error is fused with other detection scores (MSP, Energy, ReAct, BATS). -->
 

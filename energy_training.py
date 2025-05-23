@@ -73,9 +73,6 @@ def main():
     # ======== load network ========
     net = get_model(args).cuda()
     # ----
-    if args.in_data == 'CIFAR10':
-        checkpoint = torch.load(args.model_path, map_location=torch.device("cpu"))
-        net.load_state_dict(checkpoint['state_dict'])
     if args.in_data == 'ImageNet' and args.supcon:
         checkpoint = torch.load(args.model_path, map_location=torch.device("cpu"))
         state_dict_model = {str.replace(k, 'module.', ''): v for k, v in checkpoint['model'].items()}
@@ -101,11 +98,9 @@ def main():
 
 
     print("Finished. Total running time: {}".format(duration))
-    print()
-
-    print("energy_score.shape: ", energy_score.shape)
-    print("energy_score[0:50]: ", energy_score[0:50])
     print("Training set acc. : ", acc_train)
+    print("energy_score.shape: ", energy_score.shape)
+    print()
 
     return
 

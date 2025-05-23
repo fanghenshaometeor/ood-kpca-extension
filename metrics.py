@@ -102,7 +102,7 @@ def get_curve(known, novel, method=None):
     return tp, fp, fpr_at_tpr95
 
 def print_all_results(results, datasets, method):
-    mtypes = ['FPR', 'AUROC', 'AUIN']#['FPR', 'DTERR', 'AUROC', 'AUIN', 'AUOUT']
+    mtypes = ['FPR', 'AUROC', 'AUIN']
     avg_results = compute_average_results(results)
     print(' OOD detection method: ' + method)
     print('             ', end='')
@@ -121,7 +121,6 @@ def print_all_results(results, datasets, method):
     print()
 
 def compute_average_results(all_results):
-    # mtypes = ['FPR', 'DTERR', 'AUROC', 'AUIN', 'AUOUT']
     mtypes = ['FPR', 'AUROC', 'AUIN']
     avg_results = dict()
 

@@ -158,18 +158,18 @@ def val_ood_fuse(net, in_loader, out_loader, error_in, error_out, args):
     print("Processing out-of-distribution data...")
     out_scores = iterate_data_react(out_loader, net, args.threshold_react, args.temperature_react)
 
-    if args.method == 'RFF':
+    if args.approx == 'RFF':
         in_examples = (1-error_in.reshape(-1,1)) * in_scores.reshape((-1,1))
         out_examples = (1-error_out.reshape(-1,1)) * out_scores.reshape((-1,1))
-    elif args.method == 'NYS':
+    elif args.approx == 'NYS':
         in_examples = in_scores.reshape((-1,1)) / (error_in.reshape(-1,1))
         out_examples = out_scores.reshape((-1,1)) / (error_out.reshape(-1,1))
     else:
-        assert False, "Unknown method: {}".format(args.method)
+        assert False, "Unknown Approximation: {}".format(args.approx)
 
     auroc, aupr_in, aupr_out, fpr95 = get_measures(in_examples, out_examples)
 
-    print('============ Results for {}+ReAct on {} ============'.format(args.method, args.out_data))
+    print('============ Results for {}+ReAct on {} ============'.format(args.approx, args.out_data))
     print('AUROC: {}'.format(auroc))
     print('AUPR (In): {}'.format(aupr_in))
     print('AUPR (Out): {}'.format(aupr_out))

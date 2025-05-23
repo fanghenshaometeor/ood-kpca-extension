@@ -81,9 +81,10 @@ step.2. Run the `energy_training.sh` to compute the Energy values of the trainin
 bash energy_training.sh
 ```
 
-step.3. 
-<!-- - Run the `run_detection.sh` to obtain the detection results where only the KPCA-based reconstruction error serves as the detection score. 
-- Run the `run_detection_fusion.sh` to obtain the detection results where the KPCA-based reconstruction error is fused with other detection scores (MSP, Energy, ReAct, BATS). -->
+step.3. Run the `main.sh` to perform KPCA OoD detection via RFFs and Nystr&ouml;m.
+```
+bash main.sh
+```
 
 ## 
 

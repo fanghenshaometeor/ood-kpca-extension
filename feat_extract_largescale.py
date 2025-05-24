@@ -99,6 +99,8 @@ for split, in_loader in [('train', trainloaderIn), ('val', testloaderIn),]:
                     out = torch.flatten(out, 1)
                 elif args.arch == 'ViT':
                     out = feature_list[-1]
+                else:
+                    assert False, "Unknown model : {}".format(args.arch)
 
                 feat_log[start_ind:end_ind, :] = out.data.cpu().numpy()
                 if batch_idx % 100 == 0:
@@ -120,6 +122,8 @@ if FORCE_RUN or not os.path.exists(cache_name):
                 out = torch.flatten(out, 1)
             elif args.arch == 'ViT':
                 out = feature_list[-1]
+            else:
+                assert False, "Unknown model : {}".format(args.arch)
 
             ood_feat_log[start_ind:end_ind, :] = out.data.cpu().numpy()
             if batch_idx % 100 == 0:
